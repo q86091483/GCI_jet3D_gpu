@@ -1,0 +1,27 @@
+source load_gpu.sh
+
+echo "Environmental vars:"
+echo "PAWSEY_MAGMA_HOME: "${PAWSEY_MAGMA_HOME}
+echo "PELE_MAGMA_HOME:   "${PELE_MAGMA_HOME}
+echo "AMD_ARCH:          "${AMD_ARCH}
+echo "LM:                "${LM}
+echo "CMAKE_PREFIX_PATH: "${CMAKE_PREFIX_PATH}
+echo "libmagma.so:       ""$LM/libmagma.so"
+
+make TPLrealclean
+
+#make -j 8 TPL \
+#  USE_HIP=TRUE \
+#  USE_MPI=TRUE \
+#  PELE_USE_MAGMA=TRUE \
+#  AMD_ARCH=gfx90a \
+#  ONE_MAGMA_LIB_FILE="$LM/libmagma.so" \
+#  MAGMA_DEFINES="-DENABLE_MAGMA:BOOL=ON -DMAGMA_DIR=${PELE_MAGMA_HOME} -DMAGMA_WORKS:BOOL=TRUE -DSUNDIALS_MAGMA_BACKENDS:STRING=HIP" \
+
+make -j 8 \
+  USE_HIP=TRUE PELE_USE_MAGMA=TRUE AMD_ARCH=gfx90a USE_MPI=TRUE \
+  MAGMA_DEFINES="-DENABLE_MAGMA=ON -DMAGMA_DIR=$PELE_MAGMA_HOME -DMAGMA_WORKS=TRUE -DSUNDIALS_MAGMA_BACKENDS=HIP" \
+  ONE_MAGMA_SRC_FILE= \
+  ONE_MAGMA_LIB_FILE="$LM/libmagma.so" \
+  TPL
+
