@@ -2,11 +2,11 @@ TOP = /scratch/w47/q86091483/code/exascale_eb
 PELELMEX_HOME      ?= ${TOP}/PeleLMeX
 PELE_HOME 		     ?= ${TOP}/PeleLMeX
 AMREX_HOME         ?= ${TOP}/amrex
-PELE_PHYSICS_HOME  ?= ${TOP}/PelePhysics_gpu
+PELE_PHYSICS_HOME  ?= ${TOP}/PelePhysics
 AMREX_HYDRO_HOME   ?= ${TOP}/AMReX-Hydro
 PELEMP_HOME        ?= ${TOP}/PeleMP
-#SUNDIALS_HOME      ?= ${TOP}/sundials-7.4.0
-SUNDIALS_HOME      ?= ${TOP}/PelePhysics/ThirdParty/INSTALL/gnu
+SUNDIALS_HOME      ?= ${TOP}/sundials-7.4.0
+#SUNDIALS_HOME      ?= ${TOP}/PelePhysics/ThirdParty/INSTALL/gnu
 
 #HYPRE_DIR ?= /home/zisen347/opt/hypre-2.28.0
 
@@ -37,9 +37,9 @@ USE_OMP = FALSE
 USE_CUDA = FALSE
 USE_SYCL = FALSE
 
-USE_HIP = TRUE
-USE_MAGMA = TRUE
-PELE_USE_MAGMA = TRUE
+USE_HIP = FALSE
+USE_MAGMA = FALSE
+PELE_USE_MAGMA = FALSE
 
 # Debugging
 DEBUG = FALSE

@@ -77,8 +77,8 @@ struct MyProbParm : public ProbParmDefault
 // x             => x location
 // idxlo        <=> output st. xtable(idxlo) <= x < xtable(idxlo+1)
 // -----------------------------------------------------------
-AMREX_GPU_DEVICE
-AMREX_FORCE_INLINE
+//AMREX_GPU_DEVICE
+//AMREX_FORCE_INLINE
 //void get_nist_enthalpy(const std::string& name, const amrex::Real& temp, amrex::Real& res_h) 
 //{
       //-------------------------------------------------------------------------
@@ -141,7 +141,7 @@ AMREX_FORCE_INLINE
       //res_h = dh_liq + cp_liq*(temp - temp_nist_ref);
 
       //return;
-////}
+//}
 
 AMREX_GPU_DEVICE
 AMREX_FORCE_INLINE

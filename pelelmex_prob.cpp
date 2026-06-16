@@ -243,6 +243,7 @@ PeleLM::readProbParm()
 
   std::string type;
   pp.query("prf", PeleLM::prob_parm->prf);
+  pp.query("Zc", PeleLM::prob_parm->Zc);
   pp.query("P_mean", PeleLM::prob_parm->P_mean);
   pp.query("V_j", PeleLM::prob_parm->V_j);
   pp.query("V_cf", PeleLM::prob_parm->V_cf);
