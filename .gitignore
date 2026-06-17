@@ -1,0 +1,15 @@
+*.swp
+Pele*ex
+plt*
+chk*
+trash
+backup
+GNUmakefile
+input.3d
+pelelmex_prob.H
+pelelmex_probl.cpp
+tmp*
+Backtrace*
+*.sh
+*.slurm
+

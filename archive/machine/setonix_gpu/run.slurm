@@ -1,9 +1,9 @@
 #!/bin/bash -l
 #SBATCH --account=w47-gpu
 #SBATCH --partition=gpu
-#SBATCH --time=6:00:00
+#SBATCH --time=8:00:00
 
-#SBATCH --nodes=6
+#SBATCH --nodes=15
 #SBATCH --exclusive
 #SBATCH --ntasks-per-node=8
 #SBATCH --gres=gpu:8
@@ -44,7 +44,7 @@ env | egrep 'FI_|MPICH_|HIP_PLATFORM|SLURM_NNODES|SLURM_NTASKS_PER_NODE' | sort
 #     ./PeleLMeX3d.hip.x86-milan.MPI.HIP.ex input.3d
 
 srun -N ${SLURM_NNODES} \
-     --ntasks-per-node=6  \
+     --ntasks-per-node=8  \
      --gpus-per-task=1 \
      --cpus-per-task=1 \
      --export=ALL \

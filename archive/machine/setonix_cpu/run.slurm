@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=MicroMix5
+#SBATCH --job-name=GCI3D
 #SBATCH --account=w47
 #SBATCH --partition=work
 
@@ -18,7 +18,9 @@ export MPICH_OFI_STARTUP_CONNECT=1
 export MPICH_OFI_VERBOSE=1
 
 module load gcc 
-#srun -N 120 -n 7680 --mem-per-cpu=1840M PeleLMeX3d.gnu.x86-milan.MPI.ex input.3d > run.log.n5.2 2>&1
-rsync -avzPh zl5403@gadi-dm.nci.org.au:/scratch/w47/zl5403/scopingRuns/Ujet30_Re8000_rd53/chk_05000 ./chk_05000
+
+srun -N 20 -n 1280 --mem-per-cpu=1840M PeleLMeX3d.gnu.x86-milan.MPI.ex input.3d
+
+#rsync -avzPh zl5403@gadi-dm.nci.org.au:/scratch/w47/zl5403/scopingRuns/Ujet30_Re8000_rd53/chk_05000 ./chk_05000
 
 echo ">>ending:  " `date`
